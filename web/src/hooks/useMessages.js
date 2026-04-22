@@ -1,18 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../lib/axios";
 import { useAuth } from "@clerk/clerk-react";
+import api from "../lib/axios";
 
-export const useCurrentUser = () => {
+export const useMessages = (chatId) => {
   const { getToken } = useAuth();
 
   return useQuery({
-    queryKey: ["currentUser"],
+    queryKey: ["messages", chatId],
     queryFn: async () => {
       const token = await getToken();
-      const { data } = await api.get("/auth/me", {
+      const res = await api.get(`/messages/chat/${chatId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return data;
+      return res.data;
     },
+    enabled: !!chatId,
   });
 };

@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import api from "../lib/axios";
 import { useAuth } from "@clerk/clerk-react";
+import api from "../lib/axios";
 
-export const useCurrentUser = () => {
+export const useUsers = () => {
   const { getToken } = useAuth();
 
   return useQuery({
-    queryKey: ["currentUser"],
+    queryKey: ["users"],
     queryFn: async () => {
       const token = await getToken();
-      const { data } = await api.get("/auth/me", {
+      const res = await api.get("/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      return data;
+      return res.data;
     },
   });
 };
