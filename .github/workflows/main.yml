@@ -2,14 +2,14 @@ name: Bun CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Install Bun
@@ -20,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Run app
-        run: echo "Build successful"
+      - name: Run build
+        run: echo "Success"
