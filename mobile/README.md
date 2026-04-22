@@ -1,6 +1,6 @@
 # Welcome to your Real-Time-Chat-App👋
 
-This is an [Chat-dev](https://expo.dev) project created with [`cReal-Time-Chat-App`](https://www.npmjs.com/package/create-expo-app).
+This is an [Chat-dev](https://expo.dev) project created with [`Real-Time-Chat-App`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
 
